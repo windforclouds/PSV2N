@@ -12,9 +12,9 @@ This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex 
 You can install the released version of PSV2N from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.pacckage("devtools")
+install.package("devtools")
 library("devtools")
-install_githuh("windforclouds/PSV2N")
+install_github("windforclouds/PSV2N")
 ```
 
 ## Example
