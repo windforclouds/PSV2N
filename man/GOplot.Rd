@@ -9,6 +9,7 @@ GOplot(
   display.number = 10,
   enrich.pvalue = 0.05,
   CPCOLS = c("#8DA1CB", "#FD8D62", "#66C3A5"),
+  labelsize = 8,
   label.title = "The Most Enriched GO Terms",
   xlab.title = "GO Term"
 )
