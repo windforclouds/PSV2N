@@ -35,7 +35,7 @@ library(PSV2N)
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, message=FALSE, warning=FALSE}
 library(PSV2N)
 ## basic example code
 GOplot(vertex_sample[,1])
