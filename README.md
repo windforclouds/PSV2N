@@ -14,7 +14,7 @@ You can install the released version of PSV2N from [CRAN](https://CRAN.R-project
 ``` r
 install.pacckage("devtools")
 library("devtools")
-install.packages("PSV2N")
+install_githuh("windforclouds/PSV2N")
 ```
 
 ## Example
@@ -25,6 +25,7 @@ This is a basic example which shows you how to solve a common problem:
 library(PSV2N)
 #> 
 ## basic example code
+GOplot(vertex_sample[,1])
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
