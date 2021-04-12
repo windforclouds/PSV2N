@@ -15,6 +15,7 @@ GOplot <- function(genelist,
                    display.number = 10,
                    enrich.pvalue = 0.05,
                    CPCOLS = c("#8DA1CB", "#FD8D62", "#66C3A5"),
+                   labelsize = 8,
                    label.title = "The Most Enriched GO Terms",
                    xlab.title = "GO Term") {
 
@@ -87,7 +88,7 @@ GOplot <- function(genelist,
     xlab(xlab.title) +
     theme(axis.text = element_text(face = "bold", color = "gray50")) +
     labs(title = label.title, y = expression(-log[10](pvalue))) +
-    geom_text(aes(label = GeneNumber), hjust = 0.5) +
+    geom_text(aes(label = GeneNumber), label.size = labelsize, hjust = 0.5) +
     theme(plot.title = element_text(hjust = 0.5))
   return(p)
 }
