@@ -87,7 +87,7 @@ GOplot <- function(genelist,
     xlab(xlab.title) +
     theme(axis.text = element_text(face = "bold", color = "gray50")) +
     labs(title = label.title, y = expression(-log[10](pvalue))) +
-    geom_text(aes(label = GeneNumber), vjust = 0) +
+    geom_text(aes(label = GeneNumber), vjust = 0.5) +
     theme(plot.title = element_text(hjust = 0.5))
   return(p)
 }
