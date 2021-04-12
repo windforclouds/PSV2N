@@ -1,16 +1,19 @@
+<<<<<<< HEAD
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 # PSV2N
 
 <!-- badges: start -->
 <!-- badges: end -->
-The goal of PSV2N is to ...
+This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification.
 
 ## Installation
 
 You can install the released version of PSV2N from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+install.pacckage("devtools")
+library("devtools")
 install.packages("PSV2N")
 ```
 
@@ -44,3 +47,6 @@ You can also embed plots, for example:
 <img src="man/figures/README-pressure-1.png" width="100%" />
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+=======
+# PSV2N
+>>>>>>> 584f6edcad7784bc3aa40d5a7bf6b57471e616e5
