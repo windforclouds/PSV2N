@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 # PSV2N
@@ -12,9 +11,10 @@ This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex 
 You can install the released version of PSV2N from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.package("devtools")
-library("devtools")
-install_github("windforclouds/PSV2N")
+install.packages("devtools")
+library(devtools)
+github_install("windforclouds/PSV2N")
+library(PSV2N)
 ```
 
 ## Example
@@ -26,7 +26,55 @@ library(PSV2N)
 #> 
 ## basic example code
 GOplot(vertex_sample[,1])
+#> Loading required namespace: org.Hs.eg.db
+#> 
+#> Loading required package: org.Hs.eg.db
+#> Loading required package: AnnotationDbi
+#> Loading required package: stats4
+#> Loading required package: BiocGenerics
+#> Loading required package: parallel
+#> 
+#> Attaching package: 'BiocGenerics'
+#> The following objects are masked from 'package:parallel':
+#> 
+#>     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+#>     clusterExport, clusterMap, parApply, parCapply, parLapply,
+#>     parLapplyLB, parRapply, parSapply, parSapplyLB
+#> The following objects are masked from 'package:stats':
+#> 
+#>     IQR, mad, sd, var, xtabs
+#> The following objects are masked from 'package:base':
+#> 
+#>     anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+#>     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+#>     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+#>     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+#>     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+#>     union, unique, unsplit, which.max, which.min
+#> Loading required package: Biobase
+#> Welcome to Bioconductor
+#> 
+#>     Vignettes contain introductory material; view with
+#>     'browseVignettes()'. To cite Bioconductor, see
+#>     'citation("Biobase")', and for packages 'citation("pkgname")'.
+#> Loading required package: IRanges
+#> Loading required package: S4Vectors
+#> 
+#> Attaching package: 'S4Vectors'
+#> The following object is masked from 'package:base':
+#> 
+#>     expand.grid
+#> 
+#> Attaching package: 'IRanges'
+#> The following object is masked from 'package:grDevices':
+#> 
+#>     windows
+#> 'select()' returned 1:1 mapping between keys and columns
+#> [1] "GO Analysis Finished"
+#> [1] "go_enrich_df finished"
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
@@ -48,6 +96,3 @@ You can also embed plots, for example:
 <img src="man/figures/README-pressure-1.png" width="100%" />
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
-=======
-# PSV2N
->>>>>>> 584f6edcad7784bc3aa40d5a7bf6b57471e616e5

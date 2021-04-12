@@ -18,14 +18,17 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of PSV2N is to ...
+This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex to Network) which was proposed for the target identification.
 
 ## Installation
 
 You can install the released version of PSV2N from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("PSV2N")
+install.packages("devtools")
+library(devtools)
+github_install("windforclouds/PSV2N")
+library(PSV2N)
 ```
 
 ## Example
@@ -35,6 +38,7 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(PSV2N)
 ## basic example code
+GOplot(vertex_sample[,1])
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
