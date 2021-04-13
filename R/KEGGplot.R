@@ -1,6 +1,6 @@
 #'  plot KEGG plot with your interisting genelist
 #'
-#' @param genelist
+#' @param genelist a vector of gene SYMBOL
 #' @param enrich.pvalue
 #' @param high.color
 #' @param labs.x

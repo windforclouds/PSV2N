@@ -15,6 +15,8 @@ KEGGplot(
 )
 }
 \arguments{
+\item{genelist}{a vector of gene SYMBOL}
+
 \item{labs.title}{}
 }
 \description{
