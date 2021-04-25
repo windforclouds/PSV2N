@@ -9,7 +9,7 @@
 #' @param labs.x default "Pvalue"
 #' @param labs.y default "Pathway Name"
 #' @param labs.title default "Pathway Enrichment"
-#'
+#' @param titlesize.y default 8
 #' @importFrom clusterProfiler bitr enrichKEGG setReadable
 #' @import ggplot2
 #' @export KEGGplot
@@ -22,13 +22,8 @@ KEGGplot<-function(genelist,
                    high.color    = "red",
                    labs.x        = "Pvalue",
                    labs.y        = "Pathway Name",
+                   titlesize.y   = 8,
                    labs.title    = "Pathway Enrichment"){
-  #check genelist before ploting
-  if(!class(genelist) == "data.frame")
-  {
-    stop("param genelist input error!
-         please input right file" )
-  }
   #check enrich.pvalue before ploting
   if(!class(enrich.pvalue) == "numeric" || enrich.pvalue <= 0)
   {
@@ -65,7 +60,9 @@ KEGGplot<-function(genelist,
     scale_color_gradient(low=low.color,high =high.color)+
     labs(color=expression(-log[10](pvalue)),size="Count",
          x=labs.x,
-         y=labs.y,title=labs.title)+
+         y=labs.y,
+         title=labs.title)+
+    theme(axis.title.y=element_text(vjust=2, size=titlesize.y,face = "bold"))+
     theme_bw()+
     theme(plot.title = element_text(hjust = 0.5))
   return(p)

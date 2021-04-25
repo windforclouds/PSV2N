@@ -14,12 +14,6 @@
 #' @examples
 #' sample<-head(annotation_gene(vertex_sample[,1]))
 annotation_gene<-function(genelist){
-  #check genelist before ploting
-  if(!class(genelist) == "data.frame")
-  {
-    stop("param genelist input error!
-         please input right file" )
-  }
   if (!requireNamespace("org.Hs.eg.db")) {
     BiocManager::install("org.Hs.eg.db")
   }

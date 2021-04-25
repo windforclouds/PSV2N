@@ -11,6 +11,7 @@ KEGGplot(
   high.color = "red",
   labs.x = "Pvalue",
   labs.y = "Pathway Name",
+  titlesize.y = 8,
   labs.title = "Pathway Enrichment"
 )
 }
@@ -28,6 +29,8 @@ KEGGplot(
 \item{labs.x}{default "Pvalue"}
 
 \item{labs.y}{default "Pathway Name"}
+
+\item{titlesize.y}{default 8}
 
 \item{labs.title}{default "Pathway Enrichment"}
 }

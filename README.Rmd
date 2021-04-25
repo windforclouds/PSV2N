@@ -33,15 +33,26 @@ library(PSV2N)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
+GOplot
 ```{r GOplot, message=FALSE, warning=FALSE}
 library(PSV2N)
 ## basic example code
 GOplot(vertex_sample[,1])
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+KEGGplot
+```{r KEGGplot,, message=FALSE, warning=FALSE}
+KEGGplot(
+        vertex_sample[1:20,1],
+        enrich.pvalue = 0.01,
+        low.color = "green",
+        high.color = "red",
+        labs.x = "Pvalue",
+        labs.y = "Pathway Name",
+        titlesize.y   = 8,
+        labs.title = "Pathway Enrichment"
+        )
+```
 
 ```{r annotation_gene, message=FALSE, warning=FALSE}
 annotation_gene(vertex_sample[1:5,1])

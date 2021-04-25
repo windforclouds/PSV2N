@@ -24,12 +24,6 @@ GOplot <- function(genelist,
                    labelsize = 8,
                    label.title = "The Most Enriched GO Terms",
                    xlab.title = "GO Term") {
-  #check genelist before ploting
-  if(!class(genelist) == "data.frame")
-  {
-    stop("param genelist input error!
-         please input right file" )
-  }
   #check display.number before ploting
   if(trunc(display.number)-display.number != 0 || display.number <= 0)
   {
