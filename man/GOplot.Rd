@@ -18,15 +18,26 @@ GOplot(
 \item{genelist}{a vector of gene SYMBOL}
 
 \item{display.number}{number of display terms,respectively}
+
+\item{enrich.pvalue}{default value 0.05}
+
+\item{CPCOLS}{default c("#8DA1CB", "#FD8D62", "#66C3A5")}
+
+\item{labelsize}{default value 10}
+
+\item{label.title}{default "The Most Enriched GO Terms"}
+
+\item{xlab.title}{default "GO Term"}
 }
 \value{
 get the GO plot
 }
 \description{
-plot GO plot with your interisting genelist
+
 }
 \examples{
 GOplot(vertex_sample[,1])
+shorten the character GO_term
 }
 \author{
 Ji Yang

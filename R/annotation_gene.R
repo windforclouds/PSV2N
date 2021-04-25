@@ -8,16 +8,26 @@
 #' @importFrom httr GET
 #' @importFrom stringr str_split str_replace_all
 #' @importFrom XML htmlParse getNodeSet xmlValue
+#' @importFrom crayon green
 #' @export annotation_gene
 #' @author Ji Yang
 #' @examples
 #' sample<-head(annotation_gene(vertex_sample[,1]))
 annotation_gene<-function(genelist){
+  #check genelist before ploting
+  if(!class(genelist) == "data.frame")
+  {
+    stop("param genelist input error!
+         please input right file" )
+  }
   if (!requireNamespace("org.Hs.eg.db")) {
     BiocManager::install("org.Hs.eg.db")
   }
-
-  genes<- bitr(genelist, fromType="SYMBOL", toType="ENTREZID", OrgDb="org.Hs.eg.db")
+  #translate SYMBOL to ENTREZID
+  genes<- bitr(genelist,
+               fromType = "SYMBOL",
+               toType   = "ENTREZID",
+               OrgDb    = "org.Hs.eg.db")
   genes$NCBI_url <- paste("https://www.ncbi.nlm.nih.gov/gene/",genes$ENTREZ)
   genes$NCBI_url <- gsub(" ","",genes$NCBI_url)
 
@@ -54,9 +64,9 @@ annotation_gene<-function(genelist){
     cat("Written to the GeneType\t")
     # Getting summary：
     genes[i,"Summary"] <- dealNodeTxt(getNodesTxt(html_txt1,'//*[@id="summaryDl"]/dd[preceding-sibling::dt[text()="Summary" and position()=1 ] ]'))
-    cat("Written to the Summary\n")
+    cat("Written to the Summary\t")
 
-    print(paste("finished NO ",i))
+    cat(green("finished NO ",i,"\n"))
   }
   return(genes)
 }

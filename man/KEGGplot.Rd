@@ -17,7 +17,19 @@ KEGGplot(
 \arguments{
 \item{genelist}{a vector of gene SYMBOL}
 
-\item{labs.title}{}
+\item{enrich.pvalue}{default value 0.05}
+
+\item{low.color}{default parameter "green".must be one of colors:
+"black","red","green","blue","cyan","magenta","yellow","gray"}
+
+\item{high.color}{default parameter "red".must be one of colors:
+"black","red","green","blue","cyan","magenta","yellow","gray"}
+
+\item{labs.x}{default "Pvalue"}
+
+\item{labs.y}{default "Pathway Name"}
+
+\item{labs.title}{default "Pathway Enrichment"}
 }
 \description{
 plot KEGG plot with your interisting genelist

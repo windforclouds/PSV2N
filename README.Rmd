@@ -22,7 +22,7 @@ This is a shortest path-based algorithm named PS-V2N (Proximity Score of Vertex 
 
 ## Installation
 
-You can install the released version of PSV2N from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of PSV2N from [github](https://github.com/windforclouds/PSV2N) with:
 
 ``` r
 install.packages("devtools")
@@ -44,7 +44,7 @@ GOplot(vertex_sample[,1])
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
 ```{r annotation_gene, message=FALSE, warning=FALSE}
-annotation_gene(vertex_sample[1:10,1])
+annotation_gene(vertex_sample[1:5,1])
 ```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.

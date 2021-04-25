@@ -7,7 +7,8 @@
 psv2n(vertex, edge)
 }
 \arguments{
-\item{vertex}{the vertex data of your network,such as vertex_sample}
+\item{vertex}{the vertex data of your network,such as vertex_sample,
+see also \code{\link{vertex_input}}}
 
 \item{edge}{the edge data of your network,such as edge_sample}
 }
