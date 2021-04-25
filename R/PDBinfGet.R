@@ -158,7 +158,7 @@ idTranslater<-function(genelist,
 # 4 ENSEMBL_MART_FUNCGEN Ensembl Regulation 103
 
 #mart = useMart('ensembl')
-#istDatasets(mart)
+#listDatasets(mart)
 #list all dataset types
 ensembl = useMart("ENSEMBL_MART_ENSEMBL",dataset="hsapiens_gene_ensembl")
 ensembl = useDataset("hsapiens_gene_ensembl",mart=ensembl)
