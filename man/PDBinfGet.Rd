@@ -17,10 +17,10 @@ PDBinfGet(genelist,
 which are "hgnc_symbol","entrezgene_id","ensembl_gene_id","uniprot_gn_id"}
 
 \item{id.biomart}{biomart types when id needs to be translated,
-see also \code{\link{biomart::getBM}}}
+see also \code{\link{getBM}}}
 
 \item{id.dataset}{biomart dataset choose,
-see also \code{\link{biomart::getBM}}}
+see also \code{\link{getBM}}}
 
 \item{id.toType}{output id type}
 }
@@ -47,4 +47,7 @@ PDBinfGet(genelist    = "P21580",
           id.dataset  = "hsapiens_gene_ensembl",
           id.toType   = "uniprot_gn_id")
 
+}
+\author{
+Ji Yang
 }

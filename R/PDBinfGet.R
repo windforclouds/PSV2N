@@ -7,9 +7,9 @@
 #' @param id.fromType input id type(must be same as type of input genelist),we set 4 frequently-used types here,
 #' which are "hgnc_symbol","entrezgene_id","ensembl_gene_id","uniprot_gn_id"
 #' @param id.biomart biomart types when id needs to be translated,
-#' see also \code{\link{biomart::getBM}}
+#' see also \code{\link{getBM}}
 #' @param id.dataset biomart dataset choose,
-#' see also \code{\link{biomart::getBM}}
+#' see also \code{\link{getBM}}
 #' @param id.toType output id type
 #'
 #' @return properties of PDB_ID,such as method of Protein crystal analysis,
@@ -24,6 +24,7 @@
 #'           id.biomart  = ENSEMBL_MART_ENSEMBL,
 #'           id.dataset  = "hsapiens_gene_ensembl",
 #'           id.toType   = "uniprot_gn_id"
+#' @author Ji Yang
 #'
 #' @examples
 #' #input type is "hgnc_symbol":
@@ -47,8 +48,8 @@ PDBinfGet<-function(genelist,
   #genelist<-t(genelist)
   pdb_all<-data.frame()
   pdb_null<-character()
-  num_null<-0
-  num_pdb<-0
+  num_null = 0
+  num_pdb = 0
   i=0
   #choose which ways to continue,"uniprot_gn_id" or other idtypes
   if (id.fromType == "uniprot_gn_id"){
@@ -99,9 +100,9 @@ PDBinfGet<-function(genelist,
         }
       }
     cat(blue(paste("you submitted",length(genelist),"queryid(s),",
-            num_null,"queryid(s) have no PDB_ID now.","\n")))
+             num_null,"queryid(s) have no PDB_ID now.","\n")))
     if (!num_null == 0){
-      cat(underline(paste("queryid(s) with no PDB_ID are:",pdb_null)))
+      cat(paste("queryid(s) with no PDB_ID are:",underline(paste(pdb_null,collapse = ", "))))
     }
   return(pdb_all)
 }
