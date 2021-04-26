@@ -7,20 +7,20 @@ setClass("vertex_input",
         )
 setClass("annotation_gene",
          slots = list(
-           genelist = "data.frame")
+           genelist = "character")
          )
 setClass("psv2n",
          slots = list(
-           vertex = "data.frame",
+           vertex = "character",
            edge   = "data.frame")
         )
 setClass("R/annotation_gene",
          slots = list(
-           genelist = "data.frame")
+           genelist = "character")
         )
 setClass("GOplot",
          slots = list(
-           genelist       = "data.frame",
+           genelist       = "character",
            display.number = "numeric",
            enrich.pvalue  = "numeric",
            CPCOLS         = "character",
@@ -30,11 +30,22 @@ setClass("GOplot",
          )
 setClass("KEGGplot",
          slots = list(
-           genelist      = "data.frame",
+           genelist      = "character",
            enrich.pvalue = "numeric",
            low.color     = "character",
            high.color    = "character",
            labs.x        = "character",
            labs.y        = "character",
+           titlesize.y   = "numeric",
            labs.title    = "character")
+         )
+setClass("NetTopPara",
+         slots = list(
+           edge = "data.frame")
+         )
+setClass("PDBinfGet",
+         slots = list(
+           id.fromType = "character",
+           id.dataset  = "character",
+           id.toType   = "character")
          )

@@ -4,7 +4,9 @@
 #' EMBL protein(https://www.ebi.ac.uk/proteins/api/proteins/),you just need
 #' to input a vector of genelist in your hand.
 #' @param genelist a vector of gene(s)
-#' @param id.fromType input id type(must be same as type of input genelist),we set 4 frequently-used types here,
+#' @param show.length determines whether the length is displayed,default FALSE
+#' @param id.fromType input id type(must be same as type of input genelist),
+#' we set 4 frequently-used types here,
 #' which are "hgnc_symbol","entrezgene_id","ensembl_gene_id","uniprot_gn_id"
 #' @param id.biomart biomart types when id needs to be translated,
 #' see also \code{\link{getBM}}
@@ -20,6 +22,7 @@
 #' @export PDBinfGet
 #' @usage
 #' PDBinfGet(genelist,
+#'           show.length = FALSE,
 #'           id.fromType = "hgnc_symbol",
 #'           id.biomart  = ENSEMBL_MART_ENSEMBL,
 #'           id.dataset  = "hsapiens_gene_ensembl",
@@ -29,18 +32,21 @@
 #' @examples
 #' #input type is "hgnc_symbol":
 #' PDBinfGet(genelist    = vertex_sample[1:5,1],
+#'           show.length = FALSE,
 #'           id.fromType = "hgnc_symbol",
 #'           id.biomart  = ENSEMBL_MART_ENSEMBL,
 #'           id.dataset  = "hsapiens_gene_ensembl",
 #'           id.toType   = "uniprot_gn_id")
 #' #input type is "uniprot_gn_id":
 #' PDBinfGet(genelist    = "P21580",
+#'           show.length = FALSE,
 #'           id.fromType = "uniprot_gn_id",
 #'           id.biomart  = ENSEMBL_MART_ENSEMBL,
 #'           id.dataset  = "hsapiens_gene_ensembl",
 #'           id.toType   = "uniprot_gn_id")
 #'
 PDBinfGet<-function(genelist,
+                    show.length = FALSE,
                     id.fromType = "hgnc_symbol",
                     id.biomart  = ENSEMBL_MART_ENSEMBL,
                     id.dataset  = "hsapiens_gene_ensembl",
@@ -60,7 +66,7 @@ PDBinfGet<-function(genelist,
     for (queryid in genelist) {
          i=i+1
          pb$tick()
-         pdb_inf<-uniprot2pdb(queryid)
+         pdb_inf<-uniprot2pdb(queryid,showlength = show.length)
          if (length(pdb_inf) == 0){
             num_null<-num_null+1
             pdb_null[num_null]<-queryid
@@ -84,7 +90,7 @@ PDBinfGet<-function(genelist,
                                      fromType = id.fromType,
                                      toType   = id.toType)
             for (id in unipid) {
-              pdb_inf<-uniprot2pdb(id)
+              pdb_inf<- uniprot2pdb(id,showlength = show.length)
               if (length(pdb_inf) == 0){
                 next;
               } else{
@@ -109,7 +115,8 @@ PDBinfGet<-function(genelist,
 
 #this function is setted for translating Uniprot_ID to PDB_ID,
 #and search for properties of PDB_ID
-uniprot2pdb<-function(Uniprot_ID){
+uniprot2pdb<-function(Uniprot_ID,
+                      showlength = show.length){
   url<-paste0("https://www.ebi.ac.uk/proteins/api/proteins/",Uniprot_ID)
   html<-GET(url)
   pdb_content<-httr::content(html,type = 'text',
@@ -122,25 +129,28 @@ uniprot2pdb<-function(Uniprot_ID){
     num_pdb <- data.frame()
     return(num_pdb)
   } else{
-     pdb_inf<-cbind(pdb_content[pdb_content$type=="PDB","id"],
-                    pdb_properties[,c("method","chains","resolution")])
-    names(pdb_inf)<-c("PDB_ID","method","chains","resolution")
-    pdb_inf<-separate(data = pdb_inf,
-                      col  = chains,
-                      into = c("chains", "positions"),
-                      sep  = "=")
-    #calculated length of structures
-    pdb_inf<-separate(data = pdb_inf,
-                      col  = positions,
-                      into = c("from", "to"),
-                      sep  = "-",
-                      remove = FALSE)
-    #combine pdb_inf with pdb_all
-    pdb_length<-as.data.frame(lapply(pdb_inf[,c("from","to")],as.numeric))
-    pdb_inf$length<-pdb_length$to-pdb_length$from+1
-    pdb_inf<-cbind(Uniprot_ID,pdb_inf)
-    return(pdb_inf)
-  }
+      pdb_inf<-cbind(pdb_content[pdb_content$type=="PDB","id"],
+                   pdb_properties[,c("method","chains","resolution")])
+      names(pdb_inf)<-c("PDB_ID","method","chains","resolution")
+      #determines whether the length is displayed
+      if (showlength){
+        #calculated length of structures
+        pdb_inf<-separate(data = pdb_inf,
+                          col  = chains,
+                          into = c("chains", "positions"),
+                          sep  = "=")
+        pdb_inf<-separate(data = pdb_inf,
+                          col  = positions,
+                          into = c("from", "to"),
+                          sep  = "-",
+                          remove = FALSE)
+        pdb_length<-as.data.frame(lapply(pdb_inf[,c("from","to")],as.numeric))
+        pdb_inf$length<-pdb_length$to-pdb_length$from+1
+      }
+      #combine pdb_inf with pdb_all
+      pdb_inf<-cbind(Uniprot_ID,pdb_inf)
+      return(pdb_inf)
+   }
 }
 
 #this function is setted for translating id types

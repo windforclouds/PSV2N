@@ -5,6 +5,7 @@
 \title{Get all available PDB_ID information of the genelist you input}
 \usage{
 PDBinfGet(genelist,
+          show.length = FALSE,
           id.fromType = "hgnc_symbol",
           id.biomart  = ENSEMBL_MART_ENSEMBL,
           id.dataset  = "hsapiens_gene_ensembl",
@@ -13,7 +14,10 @@ PDBinfGet(genelist,
 \arguments{
 \item{genelist}{a vector of gene(s)}
 
-\item{id.fromType}{input id type(must be same as type of input genelist),we set 4 frequently-used types here,
+\item{show.length}{determines whether the length is displayed,default FALSE}
+
+\item{id.fromType}{input id type(must be same as type of input genelist),
+we set 4 frequently-used types here,
 which are "hgnc_symbol","entrezgene_id","ensembl_gene_id","uniprot_gn_id"}
 
 \item{id.biomart}{biomart types when id needs to be translated,
@@ -36,12 +40,14 @@ to input a vector of genelist in your hand.
 \examples{
 #input type is "hgnc_symbol":
 PDBinfGet(genelist    = vertex_sample[1:5,1],
+          show.length = FALSE,
           id.fromType = "hgnc_symbol",
           id.biomart  = ENSEMBL_MART_ENSEMBL,
           id.dataset  = "hsapiens_gene_ensembl",
           id.toType   = "uniprot_gn_id")
 #input type is "uniprot_gn_id":
 PDBinfGet(genelist    = "P21580",
+          show.length = FALSE,
           id.fromType = "uniprot_gn_id",
           id.biomart  = ENSEMBL_MART_ENSEMBL,
           id.dataset  = "hsapiens_gene_ensembl",

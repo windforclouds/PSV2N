@@ -17,7 +17,7 @@
 #' psv2n(vertex_sample, edge_sample)
 psv2n <- function(vertex, edge) {
   #check vertex file before calculating
-  if(!class(vetex) == "data.frame")
+  if(!class(vertex) == "data.frame")
   {
     stop("param vetex input error!
          please input right file" )
