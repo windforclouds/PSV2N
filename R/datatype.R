@@ -11,7 +11,7 @@ setClass("annotation_gene",
          )
 setClass("psv2n",
          slots = list(
-           vertex = "character",
+           vertex = "data.frame",
            edge   = "data.frame")
         )
 setClass("R/annotation_gene",
