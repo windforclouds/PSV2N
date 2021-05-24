@@ -13,7 +13,7 @@ You can install the released version of PSV2N from [github](https://github.com/w
 ``` r
 install.packages("devtools")
 library(devtools)
-github_install("windforclouds/PSV2N")
+install_github("windforclouds/PSV2N")
 library(PSV2N)
 ```
 
@@ -74,7 +74,3 @@ annotation_gene(vertex_sample[1:5,1])
 #> 4                                                                                       HLA-DQA1 belongs to the HLA class II alpha chain paralogues. The class II molecule is a heterodimer consisting of an alpha (DQA) and a beta chain (DQB), both anchored in the membrane. It plays a central role in the immune system by presenting peptides derived from extracellular proteins. Class II molecules are expressed in antigen presenting cells (APC: B Lymphocytes, dendritic cells, macrophages). The alpha chain is approximately 33-35 kDa. It is encoded by 5 exons; exon 1 encodes the leader peptide, exons 2 and 3 encode the two extracellular domains, and exon 4 encodes the transmembrane domain and the cytoplasmic tail. Within the DQ molecule both the alpha chain and the beta chain contain the polymorphisms specifying the peptide binding specificities, resulting in up to four different molecules. Typing for these polymorphisms is routinely done for bone marrow transplantation. [provided by RefSeq, Jul 2008]
 #> 5                                                                                                                                                                                                                HLA-DMB belongs to the HLA class II beta chain paralogues. This class II molecule is a heterodimer consisting of an alpha (DMA) and a beta (DMB) chain, both anchored in the membrane. It is located in intracellular vesicles. DM plays a central role in the peptide loading of MHC class II molecules by helping to release the CLIP (class II-associated invariant chain peptide) molecule from the peptide binding site. Class II molecules are expressed in antigen presenting cells (APC: B lymphocytes, dendritic cells, macrophages). The beta chain is approximately 26-28 kDa and its gene contains 6 exons. Exon one encodes the leader peptide, exons 2 and 3 encode the two extracellular domains, exon 4 encodes the transmembrane domain and exon 5 encodes the cytoplasmic tail. [provided by RefSeq, Jul 2008]
 ```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
